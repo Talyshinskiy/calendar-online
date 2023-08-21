@@ -83,5 +83,11 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
  create current day
  title
  week names header
- selection mouht
+ selection month
+
+
+ add json-server
+fetch data
+pass data to state
+slicing filtering data
    -->

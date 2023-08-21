@@ -44,8 +44,7 @@ const CurrentDay = styled("div")`
   justify-content: center;
 `;
 
-const CalendarGrid = ({ startDay, today }) => {
-  const totalDays = 42;
+const CalendarGrid = ({ startDay, today, totalDays }) => {
   const day = startDay.clone().subtract(1, "day");
   const daysArray = [...Array(totalDays)].map(() => day.add(1, "day").clone());
 

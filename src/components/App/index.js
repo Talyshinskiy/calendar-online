@@ -15,11 +15,20 @@ const ShadowWrapper = styled.div`
   border-shadow: 0 0 0 1px #1a1a1a, 0 8px 20px #888;
 `;
 
+const url = "http://localhost:4000";
+const totalDays = 42;
+
 function App() {
+  const [today, setToday] = React.useState(moment());
+  const [events, setEvents] = React.useState([]);
+
   moment.updateLocale("en", { week: { dow: 1 } });
   // const today = moment();
-  const [today, setToday] = React.useState(moment());
+
   const startDay = today.clone().startOf("month").startOf("week");
+
+  const startDateQuery = startDay.clone().format("x");
+  const endDateQuery = startDay.clone().add(totalDays,"days").format("x");
 
   const handlePrev = () =>
     setToday((prev) => prev.clone().subtract(1, "month"));
@@ -27,6 +36,12 @@ function App() {
   const handleToday = () => setToday(moment());
 
   const handleNext = () => setToday((prev) => prev.clone().add(1, "month"));
+
+  React.useEffect(() => {
+    fetch(`${url}/events?date_gte=${startDateQuery}&date_lte=${endDateQuery}`)
+      .then((res) => res.json())
+      .then((res) => setEvents(res));
+  }, []);
 
   return (
     <div>
@@ -38,7 +53,7 @@ function App() {
           handleToday={handleToday}
           handleNext={handleNext}
         />
-        <CalendarGrid startDay={startDay} today={today} />
+        <CalendarGrid startDay={startDay} today={today} totalDays={totalDays}/>
       </ShadowWrapper>
     </div>
   );
