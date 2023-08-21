@@ -27,8 +27,8 @@ function App() {
 
   const startDay = today.clone().startOf("month").startOf("week");
 
-  const startDateQuery = startDay.clone().format("x");
-  const endDateQuery = startDay.clone().add(totalDays,"days").format("x");
+  const startDateQuery = startDay.clone().format("X");
+  const endDateQuery = startDay.clone().add(totalDays, "days").format("x");
 
   const handlePrev = () =>
     setToday((prev) => prev.clone().subtract(1, "month"));
@@ -41,7 +41,7 @@ function App() {
     fetch(`${url}/events?date_gte=${startDateQuery}&date_lte=${endDateQuery}`)
       .then((res) => res.json())
       .then((res) => setEvents(res));
-  }, []);
+  }, [today]);
 
   return (
     <div>
@@ -53,7 +53,12 @@ function App() {
           handleToday={handleToday}
           handleNext={handleNext}
         />
-        <CalendarGrid startDay={startDay} today={today} totalDays={totalDays}/>
+        <CalendarGrid
+          startDay={startDay}
+          today={today}
+          totalDays={totalDays}
+          events={events}
+        />
       </ShadowWrapper>
     </div>
   );
