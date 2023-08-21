@@ -70,11 +70,18 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
 
-<!-- decomposition -->
-<!-- got data structure -->
-<!-- grid layout -->
-<!-- brought out the dates -->
-<!-- displayed weekends -->
-<!-- main css -->
-<!-- calendar wrapper -->
-<!-- designed monitor -->
+ <!-- decomposition 
+ got data structure 
+ grid layout 
+ brought out the dates 
+ displayed weekends 
+ main css 
+ calendar wrapper 
+ designed monitor
+
+ 
+ create current day
+ title
+ week names header
+ selection mouht
+   -->

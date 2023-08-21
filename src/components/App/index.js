@@ -17,17 +17,28 @@ const ShadowWrapper = styled.div`
 
 function App() {
   moment.updateLocale("en", { week: { dow: 1 } });
-  const today = moment();
+  // const today = moment();
+  const [today, setToday] = React.useState(moment());
   const startDay = today.clone().startOf("month").startOf("week");
-  
-  
+
+  const handlePrev = () =>
+    setToday((prev) => prev.clone().subtract(1, "month"));
+
+  const handleToday = () => setToday(moment());
+
+  const handleNext = () => setToday((prev) => prev.clone().add(1, "month"));
 
   return (
     <div>
       <ShadowWrapper>
         <Title />
-        <Monitor today={today} />
-        <CalendarGrid startDay={startDay} />
+        <Monitor
+          today={today}
+          handlePrev={handlePrev}
+          handleToday={handleToday}
+          handleNext={handleNext}
+        />
+        <CalendarGrid startDay={startDay} today={today} />
       </ShadowWrapper>
     </div>
   );
