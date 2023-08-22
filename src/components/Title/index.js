@@ -1,13 +1,8 @@
 import React from "react";
-import styled from "styled-components";
-
-const DivWrapper = styled("div")`
-  background-color: #2a2b2d;
-  height: 36px;
-`;
+import { DivWrapperTitle } from "../containers/StyledComponents";
 
 const Title = () => {
-  return <DivWrapper>Title</DivWrapper>;
+  return <DivWrapperTitle>Title</DivWrapperTitle>;
 };
 
 export { Title };

@@ -92,4 +92,8 @@ pass data to state
 slicing filtering data
 
 add events
+
+
+deleting events
+
    -->
