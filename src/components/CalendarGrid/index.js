@@ -33,6 +33,7 @@ const DayWrapper = styled.div`
   align-items: center;
   justify-content: center;
   margin: 2px;
+  cursor: pointer;
 `;
 
 const CurrentDay = styled("div")`
@@ -72,7 +73,13 @@ const EventItemWrapper = styled("button")`
   text-align: left;
 `;
 
-const CalendarGrid = ({ startDay, today, totalDays, events }) => {
+const CalendarGrid = ({
+  startDay,
+  today,
+  totalDays,
+  events,
+  handleOpenForm,
+}) => {
   const day = startDay.clone().subtract(1, "day");
   const daysArray = [...Array(totalDays)].map(() => day.add(1, "day").clone());
 
@@ -83,7 +90,7 @@ const CalendarGrid = ({ startDay, today, totalDays, events }) => {
     <>
       <GridWrapper isHeader>
         {[...Array(7)].map((_, i) => (
-          <CellWrapper isHeader isSelectedMonth>
+          <CellWrapper isHeader isSelectedMonth key={i}>
             <RowInCell pr={1}>
               {moment()
                 .day(i + 1)
@@ -101,7 +108,7 @@ const CalendarGrid = ({ startDay, today, totalDays, events }) => {
           >
             <RowInCell>
               <ShowDayWrapper>
-                <DayWrapper>
+                <DayWrapper onClick={() => handleOpenForm("Create")}>
                   {isCurrentDay(dayItem) ? (
                     <CurrentDay>{dayItem.format("D")}</CurrentDay>
                   ) : (
@@ -118,7 +125,11 @@ const CalendarGrid = ({ startDay, today, totalDays, events }) => {
                   )
                   .map((event) => (
                     <li key={event.id}>
-                      <EventItemWrapper>{event.title}</EventItemWrapper>
+                      <EventItemWrapper
+                        onClick={() => handleOpenForm("Update", event)}
+                      >
+                        {event.title}
+                      </EventItemWrapper>
                     </li>
                   ))}
               </EventListWrapper>
