@@ -9,6 +9,7 @@ const MonthDaysList = ({
   events,
   handleOpenForm,
   today,
+  setDisplayMode,
 }) => {
   const day = startDay.clone().subtract(1, DISPLAY_MODE_DAY);
   const daysMap = [...Array(totalDays)].map(() =>
@@ -24,6 +25,7 @@ const MonthDaysList = ({
           )}
           handleOpenForm={handleOpenForm}
           dayItem={dayItem}
+          setDisplayMode={setDisplayMode}
         />
       ))}
     </>

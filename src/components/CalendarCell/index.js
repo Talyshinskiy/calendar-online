@@ -10,8 +10,15 @@ import {
   ShowDayWrapper,
 } from "../containers/StyledComponents";
 import { isCurrentDay, isSelectedMonth } from "../../helpers";
+import { DISPLAY_MODE_DAY } from "../../helpers/constants";
 
-const CalendarCell = ({ dayItem, today, handleOpenForm, events }) => {
+const CalendarCell = ({
+  dayItem,
+  today,
+  handleOpenForm,
+  events,
+  setDisplayMode,
+}) => {
   return (
     <>
       <CellWrapper
@@ -41,7 +48,11 @@ const CalendarCell = ({ dayItem, today, handleOpenForm, events }) => {
             ))}
             {events.length > 2 ? (
               <EventListItemWrapper key="showMore">
-                <EventItemWrapper>Show more...</EventItemWrapper>
+                <EventItemWrapper
+                  onClick={() => setDisplayMode(DISPLAY_MODE_DAY)}
+                >
+                  Show more...
+                </EventItemWrapper>
               </EventListItemWrapper>
             ) : null}
           </EventListWrapper>

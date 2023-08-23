@@ -28,7 +28,7 @@ function App() {
   const [isShowForm, setShowForm] = React.useState(false);
   const [method, setMethod] = React.useState(null);
   const [event, setEvent] = React.useState(null);
-  const [displayMode, setDisplayMode] = React.useState("month");
+  const [displayMode, setDisplayMode] = React.useState(DISPLAY_MODE_MONTH);
 
   const [events, setEvents] = React.useState([]);
 
@@ -54,9 +54,13 @@ function App() {
   }, [today]);
 
   const handleOpenForm = (methodName, eventForUpdate, dayItem) => {
-    setShowForm(true);
     setEvent(eventForUpdate || { ...defaultEvent, date: dayItem.format("X") });
     setMethod(methodName);
+  };
+
+  const handleOpenModalForm = (methodName, eventForUpdate, dayItem) => {
+    setShowForm(true);
+    handleOpenForm(methodName, eventForUpdate, dayItem);
   };
 
   const handleCancelButton = () => {
@@ -161,7 +165,8 @@ function App() {
             today={today}
             totalDays={totalDays}
             events={events}
-            handleOpenForm={handleOpenForm}
+            handleOpenForm={handleOpenModalForm}
+            setDisplayMode={setDisplayMode}
           />
         ) : null}
         {displayMode === DISPLAY_MODE_DAY ? (
@@ -170,6 +175,12 @@ function App() {
             today={today}
             selectedEvent={event}
             setEvent={setEvent}
+            handleChangeEvent={handleChangeEvent}
+            handleCancelButton={handleCancelButton}
+            handleEventFetch={handleEventFetch}
+            handleRemoveRvent={handleRemoveRvent}
+            method={method}
+            handleOpenForm={handleOpenForm}
           />
         ) : null}
       </ShadowWrapper>
