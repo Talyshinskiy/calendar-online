@@ -16,18 +16,22 @@ export const RowInCell = styled.div`
   ${(props) => props.pr && `padding-right: ${props.pr * 8}px`}
 `;
 export const ShadowWrapper = styled("div")`
+  min-width: 850px;
+  height: 702px;
   border-top: 1px solid #737374;
   border-left: 1px solid #464648;
   border-right: 1px solid #464648;
   border-bottom: 2px solid #464648;
   border-radius: 8px;
   overflow: hidden;
-  border-shadow: 0 0 0 1px #1a1a1a, 0 8px 20px #888;
+  box-shadow: 0 0 0 1px #1a1a1a, 0 8px 20px 6px #888;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const FormPositionWrapper = styled("div")`
   position: absolute;
-  z-index: 100px;
+  z-index: 100;
   background-color: rgba(0, 0, 0, 0.35);
   top: 0;
   right: 0;
@@ -40,7 +44,8 @@ export const FormPositionWrapper = styled("div")`
 
 export const FormWrapper = styled(ShadowWrapper)`
   width: 320px;
-  // height: 300px;
+  min-width: 320px;
+  height: 132px;
   background-color: #1e1f21;
   color: #dddddd;
   box-shadow: unset;
@@ -199,9 +204,129 @@ export const ButtonWrapperMonitor = styled("button")`
   justify-content: center;
   align-items: center;
 `;
+
 export const TodayButton = styled(ButtonWrapperMonitor)`
 padding-right: 16px;
 padding-left: 16px:
 font-weight: bold;
 
+`;
+export const ButtonWrapperMonth = styled("button")`
+  border: unset;
+  background-color: ${(props) => (props.unPressed ? "#27282A" : "#565759")};
+  border: 1px solid #565759;
+  height: 20px;
+  border-radius: 4px;
+  color: ${(props) => (props.unPressed ? "#a4a6a9" : "#E6E6E6")};
+  outline: unset;
+  cursor: pointer;
+  &:not(:last-child) {
+    margin-right: 2px;
+  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const EventsListWrapper = styled("div")`
+  background-color: #1e1f21;
+  color: #dddddd;
+  flex-grow: 1;
+`;
+export const DayShowWrapper = styled("div")`
+  display: flex;
+  flex-grow: 1;
+  border-top: 1px solid #464648;
+`;
+
+export const EventFormWrapper = styled("div")`
+  background-color: #27282a;
+  color: #dddddd;
+  width: 300px;
+  position: relative;
+  border-left: 1px solid #464648;
+`;
+export const NoEventMsg = styled("div")`
+  color: #565759;
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+`;
+export const ScaleWrapper = styled("div")`
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0 4px;
+  position: relative;
+`;
+export const ScaleCellWrapper = styled("div")`
+  flex-grow: 1;
+  position: relative;
+  &:not(:last-child) {
+    border-bottom: 1px solid #464648;
+  }
+  margin-left: 32px;
+`;
+
+export const ScaleCellTimeWrapper = styled("div")`
+  position: absolute;
+  left: -26px;
+  top: -6px;
+  font-size: 8px;
+`;
+
+export const ScaleCellEventWrapper = styled("div")`
+  min-height: 20px;
+`;
+
+export const EventItemButton = styled(EventItemWrapper)`
+  min-width: ${(props) => props.w}px;
+  height: ${(props) => props.h}px;
+  width: unset;
+  margin-left: 4px;
+  position: absolute;
+  left: ${(props) => props.left}px;
+  top: ${(props) => props.top}px;
+  display: flex;
+  padding: 1px;
+  background-color: rgba(71, 132, 255, 0.5);
+  border: 1px solid rgba(71, 132, 255, 0.75);
+`;
+
+export const SelectEventTimeWrapper = styled("div")`
+  padding: 8px 14px;
+  border-bottom: 1px solid #464648;
+  display: flex;
+`;
+
+export const ListOfHours = styled("ul")`
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  height: 60px;
+  overflow-y: scroll;
+  color: #000;
+  position: absolute;
+  left: 2px;
+  background-color: rgb(239, 239, 239);
+`;
+
+export const PositionRelative = styled("div")`
+  position: relative;
+`;
+
+export const HoursButton = styled("button")`
+  border: none;
+  background-color: unset;
+  cursor: pointer;
+`;
+
+export const RedLine = styled("div")`
+  background-color: #f00;
+  height: 1px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: ${(props) => props.position}%;
 `;

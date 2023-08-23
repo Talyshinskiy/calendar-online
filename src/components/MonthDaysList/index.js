@@ -1,6 +1,7 @@
 import React from "react";
 import { CalendarCell } from "../CalendarCell";
 import { isDayContainCurrentEvent } from "../../helpers";
+import { DISPLAY_MODE_DAY } from "../../helpers/constants";
 
 const MonthDaysList = ({
   startDay,
@@ -9,8 +10,10 @@ const MonthDaysList = ({
   handleOpenForm,
   today,
 }) => {
-  const day = startDay.clone().subtract(1, "day");
-  const daysMap = [...Array(totalDays)].map(() => day.add(1, "day").clone());
+  const day = startDay.clone().subtract(1, DISPLAY_MODE_DAY);
+  const daysMap = [...Array(totalDays)].map(() =>
+    day.add(1, DISPLAY_MODE_DAY).clone()
+  );
   return (
     <>
       {daysMap.map((dayItem) => (

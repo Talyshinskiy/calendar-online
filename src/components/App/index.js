@@ -1,5 +1,6 @@
 import React from "react";
 import moment from "moment";
+import { DISPLAY_MODE_DAY, DISPLAY_MODE_MONTH } from "../../helpers/constants";
 import { Title } from "../Title";
 import { CalendarGrid } from "../CalendarGrid";
 import { Monitor } from "../Monitor";
@@ -12,6 +13,7 @@ import {
   FormWrapper,
   ShadowWrapper,
 } from "../containers/StyledComponents";
+import { DayShowComponents } from "../DayShowComponents";
 
 const url = "http://localhost:4000";
 const totalDays = 42;
@@ -26,6 +28,7 @@ function App() {
   const [isShowForm, setShowForm] = React.useState(false);
   const [method, setMethod] = React.useState(null);
   const [event, setEvent] = React.useState(null);
+  const [displayMode, setDisplayMode] = React.useState("month");
 
   const [events, setEvents] = React.useState([]);
 
@@ -38,11 +41,11 @@ function App() {
   const endDateQuery = startDay.clone().add(totalDays, "days").format("x");
 
   const handlePrev = () =>
-    setToday((prev) => prev.clone().subtract(1, "month"));
+    setToday((prev) => prev.clone().subtract(1, displayMode));
 
   const handleToday = () => setToday(moment());
 
-  const handleNext = () => setToday((prev) => prev.clone().add(1, "month"));
+  const handleNext = () => setToday((prev) => prev.clone().add(1, displayMode));
 
   React.useEffect(() => {
     fetch(`${url}/events?date_gte=${startDateQuery}&date_lte=${endDateQuery}`)
@@ -149,14 +152,26 @@ function App() {
           handlePrev={handlePrev}
           handleToday={handleToday}
           handleNext={handleNext}
+          setDisplayMode={setDisplayMode}
+          displayMode={displayMode}
         />
-        <CalendarGrid
-          startDay={startDay}
-          today={today}
-          totalDays={totalDays}
-          events={events}
-          handleOpenForm={handleOpenForm}
-        />
+        {displayMode === DISPLAY_MODE_MONTH ? (
+          <CalendarGrid
+            startDay={startDay}
+            today={today}
+            totalDays={totalDays}
+            events={events}
+            handleOpenForm={handleOpenForm}
+          />
+        ) : null}
+        {displayMode === DISPLAY_MODE_DAY ? (
+          <DayShowComponents
+            events={events}
+            today={today}
+            selectedEvent={event}
+            setEvent={setEvent}
+          />
+        ) : null}
       </ShadowWrapper>
     </>
   );
