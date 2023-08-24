@@ -1,8 +1,8 @@
 import React from "react";
-import { DivWrapperTitle } from "../containers/StyledComponents";
+import { DivWrapper } from "../../containers/StyledTitle";
 
 const Title = () => {
-  return <DivWrapperTitle>Title</DivWrapperTitle>;
+  return <DivWrapper>Title</DivWrapper>;
 };
 
 export { Title };

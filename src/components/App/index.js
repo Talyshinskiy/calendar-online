@@ -12,7 +12,7 @@ import {
   FormPositionWrapper,
   FormWrapper,
   ShadowWrapper,
-} from "../containers/StyledComponents";
+} from "../../containers/StyledApp"
 import { DayShowComponents } from "../DayShowComponents";
 
 const url = "http://localhost:4000";
@@ -102,7 +102,7 @@ function App() {
       });
   };
 
-  const handleRemoveRvent = () => {
+  const handleRemoveEvent = () => {
     const fetchUrl = `${url}/events/${event.id}`;
     const httpMethod = "DELETE";
 
@@ -141,7 +141,7 @@ function App() {
               <ButtonWrapper onClick={handleCancelButton}>Cancel</ButtonWrapper>
               <ButtonWrapper onClick={handleEventFetch}>{method}</ButtonWrapper>
               {method === "Update" ? (
-                <ButtonWrapper danger onClick={handleRemoveRvent}>
+                <ButtonWrapper danger onClick={handleRemoveEvent}>
                   Remove
                 </ButtonWrapper>
               ) : null}
@@ -178,7 +178,7 @@ function App() {
             handleChangeEvent={handleChangeEvent}
             handleCancelButton={handleCancelButton}
             handleEventFetch={handleEventFetch}
-            handleRemoveRvent={handleRemoveRvent}
+            handleRemoveEvent={handleRemoveEvent}
             method={method}
             handleOpenForm={handleOpenForm}
           />

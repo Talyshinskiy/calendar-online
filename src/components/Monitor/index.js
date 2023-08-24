@@ -1,16 +1,7 @@
 import React from "react";
 import { DISPLAY_MODE_MONTH, DISPLAY_MODE_DAY } from "../../helpers/constants";
 
-import {
-  ButtonWrapperMonitor,
-  ButtonWrapperMonth,
-  ButtonsCenterWrapper,
-  ButtonsWrapperMonitor,
-  DivWrapper,
-  TextWrapper,
-  TitleWrapper,
-  TodayButton,
-} from "../containers/StyledComponents";
+import { ButtonWrapper, ButtonsCenterWrapper, ButtonsWrapper, DivWrapper, TextWrapper, TitleWrapper, TodayButton } from "../../containers/StyledMonitor";
 
 const Monitor = ({
   today,
@@ -30,24 +21,24 @@ const Monitor = ({
         <TextWrapper>{today.format("YYYY")}</TextWrapper>
       </div>
       <ButtonsCenterWrapper>
-        <ButtonWrapperMonth
+        <ButtonWrapper
           unPressed={displayMode === DISPLAY_MODE_MONTH}
           onClick={() => setDisplayMode(DISPLAY_MODE_MONTH)}
         >
           Month
-        </ButtonWrapperMonth>
-        <ButtonWrapperMonth
+        </ButtonWrapper>
+        <ButtonWrapper
           unPressed={displayMode === DISPLAY_MODE_DAY}
           onClick={() => setDisplayMode(DISPLAY_MODE_DAY)}
         >
           Day
-        </ButtonWrapperMonth>
+        </ButtonWrapper>
       </ButtonsCenterWrapper>
-      <ButtonsWrapperMonitor>
-        <ButtonWrapperMonitor onClick={handlePrev}>&lt;</ButtonWrapperMonitor>
+      <ButtonsWrapper>
+        <ButtonWrapper onClick={handlePrev}>&lt;</ButtonWrapper>
         <TodayButton onClick={handleToday}>Today</TodayButton>
-        <ButtonWrapperMonitor onClick={handleNext}>&gt;</ButtonWrapperMonitor>
-      </ButtonsWrapperMonitor>
+        <ButtonWrapper onClick={handleNext}>&gt;</ButtonWrapper>
+      </ButtonsWrapper>
     </DivWrapper>
   );
 };

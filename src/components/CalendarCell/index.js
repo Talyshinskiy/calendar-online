@@ -8,7 +8,7 @@ import {
   EventListWrapper,
   RowInCell,
   ShowDayWrapper,
-} from "../containers/StyledComponents";
+} from "../../containers/StyledCalendarCell";
 import { isCurrentDay, isSelectedMonth } from "../../helpers";
 import { DISPLAY_MODE_DAY } from "../../helpers/constants";
 

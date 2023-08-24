@@ -1,5 +1,5 @@
 import React from "react";
-import { CellWrapper, RowInCell } from "../containers/StyledComponents";
+import { CellWrapper, RowInCell } from "../../containers/StyledCalendarGridHeader";
 import moment from "moment";
 
 function CalendarGridHeader() {

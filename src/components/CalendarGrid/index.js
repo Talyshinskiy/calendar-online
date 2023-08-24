@@ -1,7 +1,7 @@
 import React from "react";
 import { CalendarGridHeader } from "../CalendarGridHeader";
 import { MonthDaysList } from "../MonthDaysList";
-import { GridWrapper } from "../containers/StyledComponents";
+import { GridWrapper } from "../../containers/StyledCalendarGrid";
 
 const CalendarGrid = ({
   startDay,
