@@ -12,7 +12,7 @@ import {
   FormPositionWrapper,
   FormWrapper,
   ShadowWrapper,
-} from "../../containers/StyledApp"
+} from "../../containers/StyledApp";
 import { DayShowComponents } from "../DayShowComponents";
 
 const url = "http://localhost:4000";
@@ -33,7 +33,6 @@ function App() {
   const [events, setEvents] = React.useState([]);
 
   moment.updateLocale("en", { week: { dow: 1 } });
-  // const today = moment();
 
   const startDay = today.clone().startOf("month").startOf("week");
 

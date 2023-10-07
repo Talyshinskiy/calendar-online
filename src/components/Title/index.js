@@ -2,7 +2,7 @@ import React from "react";
 import { DivWrapper } from "../../containers/StyledTitle";
 
 const Title = () => {
-  return <DivWrapper>Title</DivWrapper>;
+  return <DivWrapper>Calendar title</DivWrapper>;
 };
 
 export { Title };

@@ -1,99 +1,69 @@
-# Getting Started with Create React App
+# Руководство по Calendar App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> Обзор приложения Calendar App - веб-приложения для календаря, вдохновленного календарем iOS. Приложение предназначено для управления вашим расписанием и событиями.
 
-## Available Scripts
+![App_svg](./src/assets/Запись%20экрана%202023-10-07%20в%2017.30.04.gif)
 
-In the project directory, you can run:
+### Содержание
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+*  Введение
+* Особенности
+* Используемые технологии
+* Начало работы
+* Использование
 
 
- <!-- decomposition 
- got data structure 
- grid layout 
- brought out the dates 
- displayed weekends 
- main css 
- calendar wrapper 
- designed monitor
+### Введение
 
- 
- create current day
- title
- week names header
- selection month
+Calendar App - это веб-приложение для календаря, созданное с целью репликации некоторых функций и возможностей, доступных в календаре iOS. Оно предлагает интуитивный интерфейс пользователя для эффективного управления вашим расписанием и событиями.
+
+### Особенности
+Calendar App разработано для обеспечения удобного пользовательского опыта при использовании календаря. Вот некоторые общие задачи, которые вы можете выполнить:
+
+>Просмотр календаря для разных месяцев.
+Кликните на определенную дату, чтобы просмотреть или добавить события.
+Редактируйте или удаляйте существующие события.
+Фильтруйте и нарезайте данные для настройки вашего вида.
+Удобное переключение между месяцами.
+Эффективное управление вашим расписанием с макетом календаря, вдохновленным iOS.
+
+##### Calendar App включает в себя следующие основные функции:
+
+* Декомпозиция: Архитектура приложения разделена на различные компоненты для удобного обслуживания и масштабируемости.
+* Структура данных: Приложение использует хорошо организованную структуру данных для управления событиями и записями.
+* Сетка календаря: Сетка календаря обеспечивает четкое и организованное отображение дат, с различными стилями для выходных дней.
+* Стилизация CSS: Основные таблицы стилей CSS обеспечивают визуально привлекательный и адаптивный дизайн.
+* Обертка календаря: Специальный элемент-обертка инкапсулирует весь календарь.
+Выделение текущего дня: Текущий день выделяется для быстрого доступа.
+* Заголовок: Календарь отображает месяц и год в виде заголовка.
+* Заголовок с именами дней недели: Заголовок включает имена дней недели.
+* Выбор месяца: Пользователи могут выбирать разные месяцы для просмотра и управления своими событиями.
+* Интеграция с JSON-Server: Приложение включает JSON-Server для обработки хранения и получения данных.
+* Получение данных: Оно извлекает данные с сервера и заполняет календарь событиями.
+* Манипуляции с данными: Пользователи могут выполнять действия, такие как фильтрация и нарезка данных для настраиваемого просмотра.
+* Управление событиями: События можно добавлять, редактировать и удалять.
+
+### Используемые технологии
+
+Calendar App создано с использованием следующих технологий:
+
+* HTML5
+* CSS3
+* JavaScript
+* JSON-Server (для хранения и получения данных)
+* moment версии ^2.29.4
+* react версии ^18.2.0
+* react-dom версии ^18.2.0
+* react-scripts версии 5.0.1
+* styled-components версии ^6.0.7
 
 
- add json-server
-fetch data
-pass data to state
-slicing filtering data
+### Начало работы
 
-add events
+Для начала работы с Calendar App выполните следующие шаги:
 
-
-deleting events
-
-   -->
+```sh
+npm install
+npm run serve
+npm run start 
+```
